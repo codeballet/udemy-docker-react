@@ -7,4 +7,4 @@ before_install:
   - docker build -t codeballet/udemy-docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI-true codeballet/udemy-docker-react npm run test
+  - docker run -e CI-true codeballet/udemy-docker-react npm run test -- --watchAll=false
