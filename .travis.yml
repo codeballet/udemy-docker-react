@@ -8,3 +8,17 @@ before_install:
 
 script:
   - docker run -e CI-true codeballet/udemy-docker-react npm run test -- --watchAll=false
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "udemy-docker-react-grider"
+  env: "UdemyDockerReactGrider-env"
+  bucket_name: "elasticbeanstalk-us-east-1-442971121200"
+  bucket_path: "udemy-docker-react-grider"
+  on:
+    branch: master
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "AWS_SECRET_ACCESS_KEY"
